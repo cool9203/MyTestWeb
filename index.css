@@ -1,4 +1,5 @@
 #botton{
-	background:blue;
+	background:#FF5577;
 	display:inline-block;
+	cursor:pointer;
 }

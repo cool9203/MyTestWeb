@@ -1,4 +1,4 @@
-var botton - document.querySelector('botton')
+var botton = document.getElementById('botton')
 botton.addEventListener('click', botton_event)
 
 function botton_event(){
