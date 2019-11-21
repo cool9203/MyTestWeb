@@ -18,7 +18,7 @@ function XMLHttpRequest_event(url){
 			document.querySelector('.ajaxshow').innerHTML = "False";
 		}
 	};
-	xhr.open('post', url);
+	xhr.open('get', url);
 	xhr.send();
 }
 
@@ -28,7 +28,7 @@ function JQueryajax_event(url){
         dataType:"json",
         async:true,
         data:"",
-        type:"post",
+        type:"get",
         success:show,
         error:()=>document.querySelector('.ajaxshow').innerHTML = "False"
     });
