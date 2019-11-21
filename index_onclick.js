@@ -42,15 +42,10 @@ function show(data, status, xhr){
     else{
         return 0;
     }
-    for (var key in result){
-        document.querySelector('.ajaxshow').innerHTML += key + ":" + result[key] + "<br>";
-    }
-    /*
     document.querySelector('.ajaxshow').innerHTML += "<div class=\"data_title\">空氣品質AQI</div><br>資料時間:" + result["0"]["PublishTime"] + "<br>";
 	for (var x in result){
 		document.querySelector('.ajaxshow').innerHTML += result[x]["SiteName"] + ":" + result[x]["Status"] + "<br>";
     }
-    */
 }
 
 function clear_event(){
