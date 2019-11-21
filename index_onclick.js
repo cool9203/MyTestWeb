@@ -8,13 +8,13 @@ function XMLHttpRequest_event(){
 			document.querySelector('.ajaxshow').innerHTML = "False"
 		}
 	};
-	xhr.open('post', "http://ip-api.com/json");
+	xhr.open('post', "https://ip-api.com/json");
 	xhr.send();
 }
 
 function JQueryajax_event(){
     $.ajax({
-        url:"http://ip-api.com/json",
+        url:"https://ip-api.com/json",
         dataType:"json",
         async:true,
         data:{"id":"value"},
