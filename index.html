@@ -1,16 +1,25 @@
 <html>
 	<link rel=stylesheet type="text/css" href="index.css">
+	<script type="text/javascript" src="index_onclick.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<div>
-		<button class="botton1">botton1</button>
-		<button class="botton1">botton2</button>
-		<button class="botton1">botton3</button>
+		<button class="alert_botton botton_edge">alert_botton_1</button>
+		<button class="alert_botton botton_edge">alert_botton_2</button>
+		<button class="alert_botton botton_edge">alert_botton_3</button>
 	</div>
 	<br>
 	<div>
-		<button class="botton1">botton4</button>
-		<button class="botton1">botton5</button>
-		<button class="botton1">botton6</button>
+		<botton class="XMLHttpRequest botton_edge" onclick="XMLHttpRequest_event()">XMLHttpRequest</botton>
 	</div>
-	
+	<br>
+	<div>
+		<botton class="JQueryajax botton_edge" onclick="JQueryajax_event()">JQuery.ajax</botton>
+	</div>
+	<br>
+	<div>
+		<botton class="clear_botton botton_edge" onclick="clear_event()">clear</botton>
+	</div>
+	<br>
+	<div class="ajaxshow"></div>
 	<script type="text/javascript" src="index.js"></script>
 </html>
