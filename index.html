@@ -2,6 +2,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel=stylesheet type="text/css" href="index.css">
 	<script type="text/javascript" src="index_onclick.js"></script>
+	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<div>
 		<button class="alert_botton botton_edge">alert_botton_1</button>
@@ -10,11 +11,12 @@
 	</div>
 	<br>
 	<div>
-		<botton class="XMLHttpRequest botton_edge" onclick="XMLHttpRequest_event()">XMLHttpRequest</botton>
+		<botton class="XMLHttpRequest botton_edge" onclick="ajax_event('XMLHttpRequest')">XMLHttpRequest</botton>
+		Get URL:<input class="input" type="text" name="fname" value="http://203.64.95.116:9527"></input>
 	</div>
 	<br>
 	<div>
-		<botton class="JQueryajax botton_edge" onclick="JQueryajax_event()">JQuery.ajax</botton>
+		<botton class="JQueryajax botton_edge" onclick="ajax_event('JQueryajax')">JQuery.ajax</botton>
 	</div>
 	<br>
 	<div>
