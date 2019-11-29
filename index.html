@@ -1,21 +1,20 @@
 <html>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-	<link rel=stylesheet type="text/css" href="index.css">
-	
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<div class="input_url">
-		<button class="XMLHttpRequest botton_edge" onclick="ajax_event('XMLHttpRequest')">XMLHttpRequest</button>
-		Get URL:<input class="input" type="text" name="fname" value="https://opendata.epa.gov.tw/api/v1/AQI?%24skip=0&%24top=1000&%24format=json"></input>
-	</div>
-	<br>
-	<div>
-		<button class="JQueryajax botton_edge" onclick="ajax_event('JQueryajax')">JQuery.ajax</button>
-	</div>
-	<br>
-	<div>
-		<button class="clear_botton botton_edge" onclick="clear_event()">clear</button>
-	</div>
-	<br>
-	<div class="ajaxshow"></div>
-	<script type="text/javascript" src="index.js"></script>
+	<body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel=stylesheet type="text/css" href="index.css">
+		<div>
+			<button class="url_button button_edge" onclick="aqi()">AQI空氣品質</button>
+			<button class="url_button button_edge" onclick="three_six_hour()">36小時天氣預報</button>
+			<button class="url_button button_edge" onclick="user_input_url()">自行輸入網址</button>
+			<div class="input_area"></div>
+		</div>
+		<br>
+		<div>
+			<button class="clear_button button_edge" onclick="clear_event()">clear</button>
+		</div>
+		<br>
+		<div class="ajaxshow"></div>
+		<script type="text/javascript" src="index.js"></script>
+	</body>
 </html>
