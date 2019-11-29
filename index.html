@@ -1,26 +1,19 @@
 <html>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<link rel=stylesheet type="text/css" href="index.css">
-	<script type="text/javascript" src="index_onclick.js"></script>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<div>
-		<button class="alert_botton botton_edge">alert_botton_1</button>
-		<button class="alert_botton botton_edge">alert_botton_2</button>
-		<button class="alert_botton botton_edge">alert_botton_3</button>
-	</div>
-	<br>
-	<div>
-		<botton class="XMLHttpRequest botton_edge" onclick="ajax_event('XMLHttpRequest')">XMLHttpRequest</botton>
+	<div class="input_url">
+		<button class="XMLHttpRequest botton_edge" onclick="ajax_event('XMLHttpRequest')">XMLHttpRequest</button>
 		Get URL:<input class="input" type="text" name="fname" value="https://opendata.epa.gov.tw/api/v1/AQI?%24skip=0&%24top=1000&%24format=json"></input>
 	</div>
 	<br>
 	<div>
-		<botton class="JQueryajax botton_edge" onclick="ajax_event('JQueryajax')">JQuery.ajax</botton>
+		<button class="JQueryajax botton_edge" onclick="ajax_event('JQueryajax')">JQuery.ajax</button>
 	</div>
 	<br>
 	<div>
-		<botton class="clear_botton botton_edge" onclick="clear_event()">clear</botton>
+		<button class="clear_botton botton_edge" onclick="clear_event()">clear</button>
 	</div>
 	<br>
 	<div class="ajaxshow"></div>

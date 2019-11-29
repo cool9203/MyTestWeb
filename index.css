@@ -8,6 +8,10 @@
 	padding: 10px 10px;
 }
 
+.input_text{
+	display: inline-block;
+}
+
 .alert_botton{
 	background: #FF5577;
 }
@@ -25,6 +29,28 @@
 }
 
 .data_title{
+	transform: translate(20px, 0px);
 	font-size: 25px;
-	color:aqua;
+	color:rgb(19, 112, 47);
+}
+
+.data_time{
+	transform: translate(20px, 0px);
+	font-size: 18px;
+}
+
+.ajaxshow{
+	width: 100%;
+	height: 80%;
+	overflow: visible;
+}
+
+.data_block{
+	width: 170px;
+	height: 260px;
+	position: top;
+	transform: translate(20px, 0px);
+	display: inline-table;
+	background: orange;
+	border: 2px solid #FFFFFF;
 }
