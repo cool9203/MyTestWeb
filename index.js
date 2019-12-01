@@ -1,3 +1,4 @@
+/*  ajax base function. but not jquert ajax. */
 function XMLHttpRequest_event(url, data_name){
     show = get_show_function(data_name);
     var xhr = new XMLHttpRequest();
@@ -13,6 +14,8 @@ function XMLHttpRequest_event(url, data_name){
 	xhr.send();
 }
 
+/*  for line 2 used.
+    can get show data model. */
 function get_show_function(data_name){
     switch (data_name){
         case "aqi":
@@ -24,6 +27,7 @@ function get_show_function(data_name){
     }
 }
 
+/*  show aqi data. */
 function show_aqi(data, status, xhr){
     result = show_preprocess(xhr);
     if (result == 0)
@@ -48,7 +52,7 @@ function show_aqi(data, status, xhr){
     
     for (var [key, value] of result){
         var str = "";
-        str += "<div class=\"data_block_aqi\"><h5>" + key + "</h5>";
+        str += "<div class=\"data_block_aqi data_block\"><h5>" + key + "</h5>";
         for (var [k, v] of value){
             str += k + ":" + v + "<br>";
         }
@@ -56,6 +60,7 @@ function show_aqi(data, status, xhr){
     }
 }
 
+/*  show 36h data. */
 function show_36h(data, status, xhr){
     result = show_preprocess(xhr);
     if (result == 0)
@@ -65,7 +70,7 @@ function show_36h(data, status, xhr){
 
     for (var key in result["cwbopendata"]["dataset"]["location"]){
         str = "";
-        str += "<div class=\"data_block_36h\"><h5>" + result["cwbopendata"]["dataset"]["location"][key]["locationName"] + "</h5>";
+        str += "<div class=\"data_block_36h data_block\"><h5>" + result["cwbopendata"]["dataset"]["location"][key]["locationName"] + "</h5>";
 
         var size = result["cwbopendata"]["dataset"]["location"][key]["weatherElement"]["3"]["time"].length;
         for (var i=0; i<size; i++){
@@ -77,6 +82,7 @@ function show_36h(data, status, xhr){
     }
 }
 
+/*  show other data. */
 function show_other(data, status, xhr){
     result = show_preprocess(xhr);
     if (result == 0)
@@ -89,6 +95,8 @@ function show_other(data, status, xhr){
     document.querySelector('.ajaxshow').innerHTML += str;
 }
 
+/*  show function preprocess.
+    clear show area and parse json data. */
 function show_preprocess(xhr){
     clear_event();
     if (xhr["responseText"] != null){
@@ -99,6 +107,7 @@ function show_preprocess(xhr){
     }
 }
 
+/* onclick function */
 function aqi(){
     XMLHttpRequest_event("https://opendata.epa.gov.tw/api/v1/AQI?%24skip=0&%24top=1000&%24format=json", "aqi");
 }
@@ -115,10 +124,9 @@ function user_input_url(){
     }else{
         document.querySelector('.input_area').innerHTML = "";
     }
-    
 }
 
-function url_push_event(){
+function url_push_event(){      //for line 123 used.
     url = document.querySelectorAll('.input_text')[1].value;
     console.log(url);
     XMLHttpRequest_event(url, "other");

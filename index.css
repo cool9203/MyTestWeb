@@ -18,14 +18,6 @@
 	background:#ff99bb;
 }
 
-.XMLHttpRequest{
-	background: #55FF77;
-}
-
-.JQueryajax{
-	background: #5577FF;
-}
-
 .clear_button{
 	background: #999999
 }
@@ -47,9 +39,7 @@
 	overflow: visible;
 }
 
-.data_block_aqi{
-	width: 170px;
-	height: 260px;
+.data_block{
 	position: top;
 	transform: translate(20px, 0px);
 	display: inline-table;
@@ -57,14 +47,14 @@
 	border: 2px solid #FFFFFF;
 }
 
+.data_block_aqi{
+	width: 170px;
+	height: 260px;
+}
+
 .data_block_36h{
 	width: 315px;
 	height: 100px;
-	position: top;
-	transform: translate(20px, 0px);
-	display: inline-table;
-	background: orange;
-	border: 2px solid #FFFFFF;
 }
 
 h5{
