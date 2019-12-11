@@ -8,7 +8,10 @@ function XMLHttpRequest_event(url, data_name){
 		}
 		else if (this.status != 200 && this.status != 0){
 			document.querySelector('.ajaxshow').innerHTML = "False";
-		}
+        }
+        else if (this.readyState == 4 && this.response.length==0){
+            document.querySelector('.ajaxshow').innerHTML = "False";
+        }
 	};
 	xhr.open('get', url);
 	xhr.send();
@@ -22,6 +25,8 @@ function get_show_function(data_name){
             return show_aqi;
         case "36h":
             return show_36h;
+        case "now_weather":
+            return show_now_weather;
         case "other":
             return show_other;
     }
@@ -82,6 +87,25 @@ function show_36h(data, status, xhr){
     }
 }
 
+/*  show now weather data. */
+function show_now_weather(data, status, xhr){
+    result = show_preprocess(xhr);
+    if (result == 0)
+        return 0;
+
+    document.querySelector('.ajaxshow').innerHTML += "<div class=\"data_title\">即時天氣狀況</div><div class=\"data_time\">資料時間:" + result["0"]["DataCreationDate"] + "</div>";
+
+
+    for (var key in result){
+        str = "";
+        str += "<div class=\"data_block_now_weather data_block\"><h5>" + result[key]["SiteName"] + "</h5>";
+        str += "溫度：" + result[key]["Temperature"] + "<br>";
+        str += "相對溼度：" + result[key]["Moisture"] + "<br>";
+        str += "日累積雨量：" + result[key]["Rainfall1day"] + "<br>";
+        document.querySelector('.ajaxshow').innerHTML += str + "</div>\n";
+    }
+}
+
 /*  show other data. */
 function show_other(data, status, xhr){
     result = show_preprocess(xhr);
@@ -114,6 +138,10 @@ function aqi(){
 
 function three_six_hour(){
     XMLHttpRequest_event("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-E142F0F7-679E-4FA3-AD0A-B0EC7B96351C&downloadType=WEB&format=JSON", "36h");
+}
+
+function now_weather(){
+    XMLHttpRequest_event("https://opendata.epa.gov.tw/api/v1/ATM00698?%24skip=0&%24top=30&%24format=json", "now_weather");
 }
 
 function user_input_url(){

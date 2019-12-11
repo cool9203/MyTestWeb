@@ -57,6 +57,11 @@
 	height: 100px;
 }
 
+.data_block_now_weather{
+	width: 200px;
+	height: 100px;
+}
+
 h5{
 	font-size: 20px;
 	margin-top: 0em;
