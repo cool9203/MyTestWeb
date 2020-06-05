@@ -71,16 +71,31 @@ function show_36h(data, status, xhr){
     if (result == 0)
         return 0;
 
-    document.querySelector('.ajaxshow').innerHTML += "<div class=\"data_title\">三十六小時天氣預報</div><div class=\"data_time\">資料時間:" + result["cwbopendata"]["dataset"]["datasetInfo"]["issueTime"].replace("T", " ").replace("+08:00", "") + "</div>";
+    console.log(result);
+    
+    document.querySelector('.ajaxshow').innerHTML += "<div class=\"data_title\">三十六小時天氣預報</div>";
 
-    for (var key in result["cwbopendata"]["dataset"]["location"]){
+    
+    result = result["records"]["location"]
+    for (let key in result){
         str = "";
-        str += "<div class=\"data_block_36h data_block\"><h5>" + result["cwbopendata"]["dataset"]["location"][key]["locationName"] + "</h5>";
-
-        var size = result["cwbopendata"]["dataset"]["location"][key]["weatherElement"]["3"]["time"].length;
+        str += "<div class=\"data_block_36h data_block\"><h5>" + result[key]["locationName"] + "</h5>";
+        
+        let temp = result[key]["weatherElement"]["3"]["time"];
+        let size = temp.length;
+        str += "天氣溫度：<br>";
         for (var i=0; i<size; i++){
-            str += result["cwbopendata"]["dataset"]["location"][key]["weatherElement"]["3"]["time"][i.toString()]["startTime"].replace("T", " ").replace("+08:00", "");
-            str += ":" + result["cwbopendata"]["dataset"]["location"][key]["weatherElement"]["3"]["time"][i.toString()]["parameter"]["parameterName"];
+            str += temp[i.toString()]["startTime"].replace("T", " ").replace("+08:00", "");
+            str += ":" + temp[i.toString()]["parameter"]["parameterName"];
+            str += "<br>";
+        }
+
+        temp = result[key]["weatherElement"]["1"]["time"];
+        size = result[key]["weatherElement"]["1"]["time"].length;
+        str += "降雨機率：<br>";
+        for (var i=0; i<size; i++){
+            str += temp[i.toString()]["startTime"].replace("T", " ").replace("+08:00", "");
+            str += ":  " + temp[i.toString()]["parameter"]["parameterName"] + "%";
             str += "<br>";
         }
         document.querySelector('.ajaxshow').innerHTML += str + "</div>\n";
@@ -137,7 +152,7 @@ function aqi(){
 }
 
 function three_six_hour(){
-    XMLHttpRequest_event("https://opendata.cwb.gov.tw/fileapi/v1/opendataapi/F-C0032-001?Authorization=CWB-E142F0F7-679E-4FA3-AD0A-B0EC7B96351C&downloadType=WEB&format=JSON", "36h");
+    XMLHttpRequest_event("https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-C0032-001?Authorization=rdec-key-123-45678-011121314", "36h");
 }
 
 function now_weather(){
